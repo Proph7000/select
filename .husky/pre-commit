@@ -1,0 +1,4 @@
+git add .
+npx lint-staged
+git add .
+npm run build

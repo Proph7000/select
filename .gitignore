@@ -1,0 +1,35 @@
+# Node.js
+node_modules/
+dist/
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Build outputs
+.vite/
+coverage/
+
+# Editor configs
+.idea/
+*.iml
+
+# System files
+.DS_Store
+Thumbs.db
+
+# TypeScript
+*.tsbuildinfo
+
+# Husky hooks
+.husky/_/
+
+# Lint staged temp files
+*.lintstaged*
+
+# Docker (опційно)
+docker-compose.override.yml
+
+.env
