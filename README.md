@@ -219,7 +219,7 @@ The select is built from smaller, composable components:
 
 - Chrome 90+
 - Firefox 88+
-- Safari 14+
+- Safari 16+
 - Edge 90+
 
 ## 📄 License
