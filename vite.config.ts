@@ -20,7 +20,6 @@ export default defineConfig({
     }),
   ],
   build: {
-    sourcemap: process.env.VITE_APP_DEVELOPMENT !== 'false',
     assetsInlineLimit: 0,
     rollupOptions: {
       output: {
