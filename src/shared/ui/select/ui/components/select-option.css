@@ -1,0 +1,27 @@
+.select-option {
+  padding: 4px 8px;
+
+  border-radius: 4px;
+
+  cursor: pointer;
+
+  transition: background-color 0.3s;
+}
+
+.select-option:hover {
+  background-color: var(--background-hover);
+}
+
+.select-option:focus {
+  outline: none;
+  background-color: var(--background-focus);
+}
+
+.select-option.selected {
+  background-color: var(--background-secondary);
+}
+
+.select-option.selected:hover,
+.select-option.selected:focus {
+  background-color: var(--background-secondary-hover);
+}

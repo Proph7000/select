@@ -1,6 +1,16 @@
 :root {
   --color-primary: #000;
-  --color-secondary: #fff;
+  --color-secondary: #8b8b8b;
+  --background: #f0f0f0;
+  --background-secondary: #e1e3ff;
+  --background-hover: #d8d8d8;
+  --background-focus: #cccccc;
+  --background-secondary-hover: #c4c8ff;
+  --background-accent: #f2f1e7;
+
+  --shadow: 0 0 5px 0px #000;
+
+  --scrollbar-size: 8px;
 }
 
 input:-webkit-autofill,
@@ -15,4 +25,34 @@ input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
+}
+
+*::-webkit-scrollbar {
+  width: var(--scrollbar-size);
+  height: var(--scrollbar-size);
+}
+
+*::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 4px;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: #949494;
+  border-radius: 4px;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  background-color: #c6c6c6;
+}
+
+body {
+  padding: 20px;
+
+  color: var(--color-primary);
+  font-family: 'Roboto', sans-serif;
+}
+
+.full-width {
+  width: 100%;
 }

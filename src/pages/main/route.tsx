@@ -4,7 +4,7 @@ import { routeNamesPaths } from '@shared/constants'
 
 import { MainPage } from './ui'
 
-export const MainPageRouter: RouteObject = {
+export const MainRouter: RouteObject = {
   path: routeNamesPaths.main,
   element: <MainPage />,
 }

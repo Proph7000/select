@@ -2,6 +2,7 @@ import path from 'path'
 
 import react from '@vitejs/plugin-react'
 import { defineConfig } from 'vite'
+import svgr from 'vite-plugin-svgr'
 
 // eslint-disable-next-line custom/no-nested-relative-imports
 import { baseRoute } from './src/shared/constants/route-names-paths'
@@ -11,6 +12,7 @@ const VENDOR_LIBS = ['/react/', '/react-dom/', '/react-router-dom/']
 export default defineConfig({
   base: baseRoute,
   plugins: [
+    svgr(),
     react({
       babel: {
         plugins: [['babel-plugin-react-compiler']],

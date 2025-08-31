@@ -4,6 +4,8 @@ import {
   RouterProvider as ReactRouterProvider,
 } from 'react-router-dom'
 
+import { MainRouter } from '@pages/main'
+
 import { baseRoute, routeNamesPaths } from '@shared/constants'
 
 import { MainLayout } from '../layouts'
@@ -13,7 +15,7 @@ const router = createBrowserRouter(
     {
       path: routeNamesPaths.main,
       element: <MainLayout />,
-      children: [],
+      children: [MainRouter],
     },
     {
       path: '*',
