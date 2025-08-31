@@ -186,7 +186,7 @@ export function SelectOptions({
 
                 <div
                   ref={parentRef}
-                  style={{ height: '100%', overflow: 'auto' }}
+                  style={{ height: '100%', overflow: 'auto', paddingRight: 4 }}
                 >
                   <div
                     style={{

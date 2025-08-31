@@ -8,6 +8,18 @@
   --background-secondary-hover: #c4c8ff;
   --background-accent: #f2f1e7;
 
+  /* Text colors for descriptions */
+  --text-heading-primary: #333;
+  --text-heading-secondary: #444;
+  --text-heading-tertiary: #555;
+  --text-body-primary: #666;
+  --text-body-secondary: #555;
+  --text-accent: #007bff;
+
+  /* Background colors for special sections */
+  --background-note: #f8f9fa;
+  --background-note-border: #007bff;
+
   --shadow: 0 0 5px 0px #000;
 
   --scrollbar-size: 8px;
@@ -47,6 +59,8 @@ input::-webkit-inner-spin-button {
 }
 
 body {
+  max-width: 1200px;
+  margin: 0 auto;
   padding: 20px;
 
   color: var(--color-primary);

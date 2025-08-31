@@ -1,0 +1,73 @@
+.description {
+  margin: 40px auto 0;
+
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.description h2 {
+  font-size: 28px;
+  font-weight: 600;
+  color: var(--text-heading-primary);
+}
+
+.description h3 {
+  font-size: 22px;
+  font-weight: 500;
+  color: var(--text-heading-secondary);
+}
+
+.description p {
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--text-body-primary);
+}
+
+.description ul {
+  padding-left: 20px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.description li {
+  font-size: 15px;
+  line-height: 1.5;
+  color: var(--text-body-secondary);
+}
+
+.description strong {
+  color: var(--text-heading-primary);
+  font-weight: 600;
+}
+
+.description h4 {
+  font-size: 20px;
+  font-weight: 500;
+  color: var(--text-heading-tertiary);
+}
+
+.local-dev-note {
+  padding: 16px;
+
+  background-color: var(--background-note);
+  border-left: 4px solid var(--background-note-border);
+  border-radius: 4px;
+}
+
+.local-dev-note h4 {
+  margin-top: 0;
+  color: var(--text-accent);
+}
+
+.local-dev-note a {
+  color: var(--text-accent);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.local-dev-note a:hover {
+  text-decoration: underline;
+}
