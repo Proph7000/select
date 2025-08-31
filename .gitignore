@@ -32,4 +32,8 @@ Thumbs.db
 # Docker (опційно)
 docker-compose.override.yml
 
+# pnpm
+.pnpm-store/
+.pnpm-debug.log*
+
 .env
