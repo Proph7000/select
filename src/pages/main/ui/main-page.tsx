@@ -5,15 +5,13 @@ import { ISelectOption } from '@shared/ui'
 
 import './main-page.css'
 
-const options = new Array(200).fill(null).map((_, index) => ({
+const options = new Array(20).fill(null).map((_, index) => ({
   value: index.toString(),
   label: `Option ${index}`,
 }))
 
 export function MainPage() {
-  const [selectedValue, setSelectedValue] = useState<ISelectOption | null>(
-    options[123],
-  )
+  const [selectedValue, setSelectedValue] = useState<ISelectOption | null>()
 
   return (
     <div>

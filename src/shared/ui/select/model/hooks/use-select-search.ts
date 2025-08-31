@@ -1,34 +1,43 @@
-import { RefObject, useState, useEffect, KeyboardEvent } from 'react'
+import { useState, useEffect, KeyboardEvent, useTransition } from 'react'
 
 import { useDebounce } from '@shared/hooks'
 
+import { ISelectOption } from '../types'
+
 export function useSelectSearch(
-  optionsWrapperRef: RefObject<HTMLDivElement | null>,
+  options: ISelectOption[],
+  onNavigateToIndex: (index: number) => void,
 ) {
   const [search, setSearch] = useState('')
+  const [isPending, startTransition] = useTransition()
 
   const debouncedSearch = useDebounce(search, 700)
-
-  const optionsList =
-    optionsWrapperRef.current && Array.from(optionsWrapperRef.current.children)
 
   useEffect(() => {
     if (!debouncedSearch) {
       return
     }
 
-    const option = optionsList?.find((option) =>
-      option.textContent?.includes(debouncedSearch),
-    ) as HTMLElement | undefined
+    startTransition(() => {
+      const searchLower = debouncedSearch.toLowerCase()
 
-    option?.focus()
+      const foundIndex = options.findIndex((option) =>
+        option.label.toLowerCase().includes(searchLower),
+      )
 
-    setSearch('')
-  }, [debouncedSearch, optionsList])
+      if (foundIndex !== -1) {
+        onNavigateToIndex(foundIndex)
+      }
+
+      setSearch('')
+    })
+  }, [debouncedSearch, options, onNavigateToIndex])
 
   const handleSearch = (e: KeyboardEvent<HTMLDivElement>) => {
-    setSearch((prev) => prev + e.key)
+    if (e.key.length === 1) {
+      setSearch((prev) => prev + e.key)
+    }
   }
 
-  return handleSearch
+  return { handleSearch, isPending, search }
 }

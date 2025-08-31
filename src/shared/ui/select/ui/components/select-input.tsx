@@ -1,5 +1,5 @@
 import clsx from 'clsx'
-import { KeyboardEvent, RefObject } from 'react'
+import { KeyboardEvent, RefObject, useEffect } from 'react'
 
 import ArrowUp from '@shared/assets/icons/arrow-up.svg?react'
 
@@ -53,6 +53,12 @@ export function SelectInput({
   selectClassName,
   onKeyDown,
 }: ISelectInputProps) {
+  useEffect(() => {
+    if (autoFocus && !disabled && selectInputWrapperRef.current) {
+      selectInputWrapperRef.current.focus()
+    }
+  }, [autoFocus, disabled, selectInputWrapperRef])
+
   const handleKeyDown = (e: KeyboardEvent<HTMLDivElement>) => {
     if (e.key === 'Enter') {
       handleClickInput()
@@ -95,9 +101,8 @@ export function SelectInput({
           placeholder={placeholder}
           disabled={disabled}
           readOnly={!autoComplete}
-          autoFocus={autoFocus}
+          autoFocus={false}
           tabIndex={-1}
-          aria-hidden='true'
         />
 
         {!disabled && (

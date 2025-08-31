@@ -16,6 +16,7 @@
   },
   "dependencies": {
     "@tanstack/react-query": "^5.85.5",
+    "@tanstack/react-virtual": "^3.13.12",
     "@types/react-transition-group": "^4.4.12",
     "axios": "^1.11.0",
     "clsx": "^2.1.1",

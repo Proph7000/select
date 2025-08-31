@@ -1,7 +1,7 @@
 import clsx from 'clsx'
-import { useRef, useEffect } from 'react'
+import { useRef, useEffect, RefObject, CSSProperties } from 'react'
 
-import { delaySetHeight, ISelectOption, SELECT_CLASS_NAMES } from '../../model'
+import { ISelectOption, SELECT_CLASS_NAMES } from '../../model'
 
 import './select-option.css'
 
@@ -10,12 +10,20 @@ interface ISelectOptionProps {
   value: ISelectOption | null
   onClick: () => void
   index: number
+  selectInputWrapperRef: RefObject<HTMLDivElement | null>
+  style?: CSSProperties
+  preventFocus?: boolean
+  isFocused?: boolean
 }
 
 export function SelectOption({
   option,
   value,
   onClick,
+  selectInputWrapperRef,
+  style,
+  preventFocus,
+  isFocused,
   index,
 }: ISelectOptionProps) {
   const optionRef = useRef<HTMLDivElement>(null)
@@ -23,27 +31,32 @@ export function SelectOption({
   const selected = option.value === value?.value
 
   useEffect(() => {
-    if (index === 0 || selected) {
-      setTimeout(() => {
-        optionRef.current?.focus()
-      }, delaySetHeight + 10)
+    if (isFocused && !preventFocus) {
+      optionRef.current?.focus()
     }
-  }, [index, selected])
+  }, [isFocused, preventFocus])
 
   return (
     <div
       key={option.value}
       className={clsx(SELECT_CLASS_NAMES.option, {
         selected,
+        focused: isFocused,
       })}
+      style={style}
       onClick={onClick}
       role='option'
       aria-selected={selected}
       tabIndex={0}
       ref={optionRef}
+      data-index={index}
       onKeyDown={(e) => {
         if (e.key === 'Enter') {
           onClick()
+
+          setTimeout(() => {
+            selectInputWrapperRef.current?.focus()
+          }, 100)
         }
       }}
     >
