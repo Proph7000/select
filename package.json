@@ -5,15 +5,14 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "pnpm install && tsc -b && vite build",
+    "build": "tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview",
     "prepare": "husky",
     "format": "prettier . --write",
     "lint:fix": "eslint src --fix --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "build:loc": "tsc && vite build --sourcemap false",
-    "check-types": "tsc -b --noEmit",
-    "install-deps": "pnpm install --frozen-lockfile"
+    "check-types": "tsc -b --noEmit"
   },
   "dependencies": {
     "@tanstack/react-query": "^5.85.5",
